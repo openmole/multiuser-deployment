@@ -1,0 +1,13 @@
+---
+
+- name: Install Kubernetes
+  include: ../kubespray/cluster.yml
+  tags:
+    - kubernetes
+
+- hosts: kube-master
+  run_once: yes
+  roles:
+    - heapster
+  tags:
+    - heapster
